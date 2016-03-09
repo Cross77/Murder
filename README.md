@@ -25,8 +25,17 @@ person <murder_uid> kill <victim_uid>  # kill person
 
 ## Commands in JavaScript
 
+Send command :
+
+```
 app.send( <command : string> ) => void // send command <br/>
+```
+
+Get last command :
+
+```
 app.last() => string // get last command
+```
 
 ## Compile
 
