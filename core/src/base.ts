@@ -22,9 +22,10 @@ module Murder{
         public show_list(): void{
             var uid: number = 0;
             var temp: string;
+            var self: BaseImplementation = this;
             this.persons.forEach(function(person : PersonImplementation){
                 temp = uid.toString() + ' : ' + person.getFullname();
-                this.log.send(temp);
+                self.log.send(temp);
                 uid++;
             });
         }

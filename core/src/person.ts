@@ -22,12 +22,13 @@ module Murder{
             this.log.send("New person " + this.getFullname());
         }
         public getKiller() : PersonImplementation{
+            // here must be exception if killer doesnt exist
             return this.killer;
         }
         public isAlive() : boolean{
             return this.alive;
         }
-        private createPerson(data: PersonInterface){
+        private createPerson(data: PersonInterface): PersonInterface{
             var newPerson : PersonInterface= {
                 firstname: "Unkown",
                 lastname: "Unkown",
@@ -48,7 +49,7 @@ module Murder{
             }
             return newPerson;
         }
-        public kill(killer: PersonImplementation) : boolean{
+        public kill(killer: PersonImplementation): boolean{
             if(!this.alive){
                 this.log.send('You cannot kill ' + killer.getFirstname() + ' again.');
                 return false;
@@ -58,7 +59,7 @@ module Murder{
             this.alive = false;
             return true;
         }
-        public killPerson(victim: PersonImplementation) : boolean{
+        public killPerson(victim: PersonImplementation): boolean{
             if(!this.alive){
                 var sex = 'she';
                 if(this.person.male) sex = 'he';

@@ -4,7 +4,7 @@ module Murder{
         constructor(cb: (string) => void ){
             this.cb = cb;
         }
-        public send(text: string, cmd: boolean = false){
+        public send(text: string, cmd: boolean = false): void{
             if(cmd) text = '> ' + text;
             text = text
                 .replace(/&/g, "&amp;")

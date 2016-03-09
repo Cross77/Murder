@@ -124,9 +124,10 @@ var Murder;
         BaseImplementation.prototype.show_list = function () {
             var uid = 0;
             var temp;
+            var self = this;
             this.persons.forEach(function (person) {
                 temp = uid.toString() + ' : ' + person.getFullname();
-                this.log.send(temp);
+                self.log.send(temp);
                 uid++;
             });
         };
@@ -167,6 +168,14 @@ var Murder;
             }
         };
         CMDImplementation.prototype.kill = function (cmd) {
+            if (typeof cmd[1] == 'undefined') {
+                this.log.send('Kill error: you must enter uid of murder.');
+                return;
+            }
+            if (typeof cmd[3] == 'undefined') {
+                this.log.send('Kill error: you must enter uid of victim.');
+                return;
+            }
             var uid_murder = parseInt(cmd[1]);
             var uid_victim = parseInt(cmd[3]);
             this.app.person(uid_murder).killPerson(this.app.person(uid_victim));
@@ -174,8 +183,20 @@ var Murder;
         CMDImplementation.prototype.persons = function (cmd) {
             this.app.show_list();
         };
+        CMDImplementation.prototype.getAll = function (uid) {
+            this.log.send('Fullname : ' + this.app.person(uid).getFullname());
+            this.log.send('Firstname : ' + this.app.person(uid).getFirstname());
+            this.log.send('Lastname : ' + this.app.person(uid).getLastname());
+            this.log.send('Sex : ' + this.app.person(uid).getSex());
+            this.log.send('Age : ' + this.app.person(uid).getAge());
+            this.log.send('Killer : ' + this.app.person(uid).getKiller().getFullname());
+        };
         CMDImplementation.prototype.get_info = function (cmd) {
             var uid = parseInt(cmd[1]);
+            if (typeof cmd[3] == 'undefined') {
+                this.log.send('Get info error: what do you want get?');
+                return;
+            }
             switch (cmd[3]) {
                 case 'fullname':
                     this.log.send('Fullname : ' + this.app.person(uid).getFullname());
@@ -187,7 +208,7 @@ var Murder;
                     this.log.send('Lastname : ' + this.app.person(uid).getLastname());
                     break;
                 case 'killer':
-                    this.log.send('Firstname : ' + this.app.person(uid).getKiller());
+                    this.log.send('Killer : ' + this.app.person(uid).getKiller().getFullname());
                     break;
                 case 'sex':
                     this.log.send('Sex : ' + this.app.person(uid).getSex());
@@ -196,13 +217,21 @@ var Murder;
                     this.log.send('Age : ' + this.app.person(uid).getAge());
                     break;
                 case 'all':
-                    this.log.send('All information : ' + this.app.person(uid).getAge());
+                    this.getAll(uid);
                     break;
                 default:
                     this.log.send('Get info error: cant find element ' + cmd[3]);
             }
         };
         CMDImplementation.prototype.person = function (cmd) {
+            if (typeof cmd[1] == 'undefined') {
+                this.log.send('Person error: you must enter uid of person.');
+                return;
+            }
+            if (typeof cmd[2] == 'undefined') {
+                this.log.send('Person error: you must enter function.');
+                return;
+            }
             switch (cmd[2]) {
                 case 'kill':
                     this.kill(cmd);
@@ -211,7 +240,7 @@ var Murder;
                     this.get_info(cmd);
                     break;
                 default:
-                    this.log.send('Person error : cant find function ' + cmd[2]);
+                    this.log.send('Person error: cant find function ' + cmd[2]);
             }
         };
         CMDImplementation.prototype.add = function (cmd) {
@@ -242,9 +271,6 @@ var Murder;
                     break;
                 case 'add':
                     this.add(a_cmd);
-                    break;
-                case 'kill':
-                    this.kill(a_cmd);
                     break;
                 case 'help':
                     this.help(a_cmd);
