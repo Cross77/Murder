@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # hello world murder
 my "hello world" in typescript
 
@@ -40,3 +41,7 @@ node-sass ./css/src/style.scss ./css/murder.css
 Sass Compressed :
 node-sass --output-style compressed ./css/src/style.scss ./css/murder.min.css
 
+=======
+# Murder
+Murder is my "hello world" in typescript
+>>>>>>> 07fdb5d7566a95307fd6f06c471f518dfc2530f3
