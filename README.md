@@ -17,13 +17,26 @@ help kill      # how to kill person
 
 cls | clear    # clear screen
 
+persons        # get persons list with uid
+
+person <murder_uid> kill <victim_uid>              # kill person
+
 add <firstname> <lastname> <age> <sex>(true/false) # add person
 
-person <uid> get ( fullname | firstname | lastname | killer | sex | age | killer | all ) # get information about person
+person <uid> get <get_option>                      # get information about person
+```
 
-person <murder_uid> kill <victim_uid>  # kill person
+get_option :
 
-persons        # get persons list with uid
+```
+    fullname
+    firstname
+    lastname
+    killer
+    sex
+    age
+    killer
+    all
 ```
 
 ## Commands in JavaScript
