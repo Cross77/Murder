@@ -3,6 +3,7 @@
 It is my "hello world" in typescript
 
 ## Commands list
+
 ```
 help           # list of helps
 
@@ -18,9 +19,11 @@ cls | clear    # clear screen
 
 add <firstname> <lastname> <age> <sex>(true/false) # add person
 
-person <uid> get ( fullname | firstname | lastname | killer | sex | age | kill ) # get information about person
+person <uid> get ( fullname | firstname | lastname | killer | sex | age | killer | all ) # get information about person
 
 person <murder_uid> kill <victim_uid>  # kill person
+
+persons        # get persons list with uid
 ```
 
 ## Commands in JavaScript

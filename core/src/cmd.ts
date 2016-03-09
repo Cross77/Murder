@@ -10,7 +10,7 @@ module Murder{
             this.app = app;
             this.log = log;
         }
-        private help(cmd: Array<string>){
+        private help(cmd: Array<string>): void{
             if(cmd.length == 1){
                 this.log.send('Enter : help person');
                 this.log.send('Enter : help persons');
@@ -19,6 +19,9 @@ module Murder{
                 this.log.send('Enter : ( clear | cls ) - for clear logs');
             }else{
                 switch(cmd[1]){
+                    case 'persons':
+                        this.log.send('Enter: persons for get persons list with uid');
+                        break;
                     case 'person':
                         this.log.send('Enter: person <uid> get ( fullname | firstname | lastname | killer | sex | age | kill | all ) ');
                         break;
@@ -34,7 +37,7 @@ module Murder{
             }
         }
         
-        private kill(cmd: Array<string>){
+        private kill(cmd: Array<string>): void{
             if(typeof cmd[1] == 'undefined'){
                 this.log.send('Kill error: you must enter uid of murder.');
                 return;
@@ -90,7 +93,7 @@ module Murder{
                     this.log.send('Get info error: cant find element ' + cmd[3]);
             }
         }
-        private person(cmd: Array<string>){
+        private person(cmd: Array<string>): void{
             if(typeof cmd[1] == 'undefined'){
                 this.log.send('Person error: you must enter uid of person.');
                 return;
@@ -110,7 +113,7 @@ module Murder{
                     this.log.send('Person error: cant find function ' + cmd[2]);
             }
         }
-        private add(cmd: Array<string>){
+        private add(cmd: Array<string>): void{
             var firstname : string = cmd[1];
             var lastname : string = cmd[2];
             var age : number = parseInt(cmd[3]);

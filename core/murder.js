@@ -153,6 +153,9 @@ var Murder;
             }
             else {
                 switch (cmd[1]) {
+                    case 'persons':
+                        this.log.send('Enter: persons for get persons list with uid');
+                        break;
                     case 'person':
                         this.log.send('Enter: person <uid> get ( fullname | firstname | lastname | killer | sex | age | kill | all ) ');
                         break;
