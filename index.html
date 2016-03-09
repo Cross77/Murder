@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test TypeScript</title>
+	<script src="core/murder.js"></script>
+    <link rel="stylesheet" href="css/murder.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>#TypeScript #Learning #Murder #FirstApp</h2>
+        <ul id="log"></ul>
+        <input type="text" id="cmd" onkeydown="input_cmd(event)">
+        <div class="left">
+            <button id="sendCmd" onclick="send_cmd(document.getElementById('cmd').value)">Send</button>
+        </div>
+    </div>
+    <script>
+        var log = function(text){
+            var logger = document.getElementById('log');
+            logger.innerHTML += '<li>' + text + '</li>';
+            logger.scrollTop = logger.scrollHeight;
+        };
+        
+        var app = new Murder.init(log);
+        
+        function send_cmd(c){
+            app.send(c);
+        }
+        function get_last_cmd(){
+            return app.last();
+        }
+        
+        function input_cmd(event){
+            if (event.keyCode == 13){
+                document.getElementById('sendCmd').click();
+                document.getElementById("cmd").value = '';
+            }else if(event.keyCode == 38){
+                document.getElementById("cmd").value = get_last_cmd();
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // Examples
+            app.send('help');
+            app.send('add Pablo White 20 true');
+            app.send('add Jeremy Black 18 true');
+        });
+    </script>
+</body>
+</html>

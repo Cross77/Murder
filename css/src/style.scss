@@ -1,0 +1,85 @@
+$bgc-color: #F44336;
+$txt-color: #FFCDD2;
+.transition{
+    -webkit-transition: all .1s ease-in;
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+body{
+    position: absolute;
+    background-color: $bgc-color;
+    color: $txt-color;
+    width: 100%;
+    font-family: monospace;
+    padding: 0;
+    margin: 0;
+}
+h2{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+.container{
+    width: calc( 100% - 30px );
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+ul#log{
+    width: 100%;
+    background-color: #FFEBEE;
+    color: #F44336;
+    font-size: 20px;
+    font-weight: lighter;
+    list-style: none;
+    height: 250px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    li{
+        border-bottom: #aaa;
+        cursor: pointer;
+        padding: 5px 15px;
+        &:hover{
+            background-color: #F44336;
+            color: #FFEBEE;
+        }
+    }
+}
+button{
+    @extend .transition;
+    border: none;
+    padding: 10px 20px;
+    margin: 0;
+    background-color: #F44336;
+    border: 2px solid #FFEBEE;
+    color: #FFEBEE;
+    border-radius: 3px;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+    float: right;
+    &:hover{
+        background-color: #FFEBEE;
+        color: #F44336;
+    }
+}
+input#cmd{
+    background-color: #FFEBEE;
+    border: 0;
+    padding: 10px 15px;
+    width: calc( 100% - 30px );
+    color: #F44336;
+    outline: none;
+    border-top: 2px solid #FFCDD2;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: lighter;
+    font-family: monospace;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
