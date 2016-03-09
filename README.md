@@ -28,13 +28,13 @@ person <murder_uid> kill <victim_uid>  # kill person
 Send command :
 
 ```
-app.send( <command : string> ) => void // send command <br/>
+app.send( <command : string> ) => void  # send command
 ```
 
 Get last command :
 
 ```
-app.last() => string // get last command
+app.last() => string # get last command
 ```
 
 ## Compile
