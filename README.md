@@ -1,41 +1,47 @@
-# Murder
+# Murder app
+
 It is my "hello world" in typescript
 
-# commands
-help - list of helps
+## Commands list
+```
+help           # list of helps
 
-help add - how to add person
+help add       # how to add person
 
-help person - get information of person
+help person    # get information of person
 
-help persons - persons list with uid
+help persons   # persons list with uid
 
-help kill - how to kill person
+help kill      # how to kill person
 
-cls | clear - clear screen
+cls | clear    # clear screen
 
-add <firstname> <lastname> <age> <sex>(true/false) - add person
+add <firstname> <lastname> <age> <sex>(true/false) # add person
 
-person <uid> get ( fullname | firstname | lastname | killer | sex | age | kill )
+person <uid> get ( fullname | firstname | lastname | killer | sex | age | kill ) # get information about person
 
-person <murder_uid> kill <victim_uid> - kill person
+person <murder_uid> kill <victim_uid>  # kill person
+```
 
-# commands in js
-app.send( <command : string> ) => void // send command
+## Commands in JavaScript
+
+app.send( <command : string> ) => void // send command <br/>
 app.last() => string // get last command
 
-# interfaces
-interface PersonInterface{</br>
-    firstname: string;</br>
-    lastname?: string;</br>
-    age: number;</br>
-    male: boolean;</br>
-}
+## Compile
 
-# compile
 Typescript :
+
+```
 tsc core/src/main.ts --out  core/murder.js --removeComments
+```
+
 Sass :
-node-sass ./css/src/style.scss ./css/murder.css
+
+```
+node-sass ./css/src/style.scss ./css/murder.css<br/>
+```
 Sass Compressed :
+```
 node-sass --output-style compressed ./css/src/style.scss ./css/murder.min.css
+```
