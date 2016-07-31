@@ -70,3 +70,6 @@ Sass Compressed :
 ```
 node-sass --output-style compressed ./css/src/style.scss ./css/murder.min.css
 ```
+
+## Demo
+http://cross77.github.io/murder/
